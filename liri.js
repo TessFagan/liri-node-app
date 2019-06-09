@@ -1,6 +1,3 @@
-// Naming conventions:
-// 1 - regular variables start with lowercase
-// 2 - constructors start with capitals
 
 var axios = require("axios");
 // var Spotify = require('node-spotify-api');
@@ -40,31 +37,29 @@ chooseAPI(type, input)
 
 
 function concertThis(input) {
-  console.log("its a function!")
   var queryUrl = `https://rest.bandsintown.com/artists/${input}/events?app_id=codingbootcamp`
-  // console.log(queryUrl);
 
-  axios.get(queryUrl).then(
-    function (response) {
-      console.log(response)
-    }
-  )
+  axios.get(queryUrl)
+    .then(function (response) {
+      var concert = response.data
+      concert.forEach(Object => {
+        let venueName = Object.venue.name
+        let venueLocation = Object.venue.city + ", " + Object.venue.country
+        let venueTime = moment(Object.datetime).format('MMMM Do YYYY')
+        console.log(`\n${venueName}`)
+        console.log(venueLocation)
+        console.log(venueTime)
+      })
+    })
+
     .catch(function (error) {
       if (error.response) {
-        // The request was made and the server responded with a status code
-        // that falls out of the range of 2xx
+        // The request was made and the server responded with a status code that falls out of the range
         console.log(error.response.data);
-        // console.log(error.response.status);
-        // console.log(error.response.headers);
       }
-      else {
-        // Something happened in setting up the request that triggered an Error
-        console.log("Error", error.message);
-      }
-      console.log(error.config);
-    }
-    )
+    })
 }
+
 
 function spotifyThis() {
 
@@ -77,3 +72,9 @@ function movieThis() {
 function doWhatItSays() {
 
 }
+
+
+// concert.forEach(Element => {
+//   let venueName = Element.venue.name
+//           let venueLocation = `${element.venue.country} + ${element.venue.region}+ ${element.venue.city}`
+//           console.log(venueLocation)})
