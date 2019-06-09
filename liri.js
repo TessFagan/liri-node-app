@@ -1,22 +1,21 @@
-```js
-require("dotenv").config();
-```
+// Naming conventions:
+// 1 - regular variables start with lowercase
+// 2 - constructors start with capitals
+
+var axios = require("axios");
+var Spotify = require('node-spotify-api');
+var spotifyKeys = new Spotify(keys.spotify);
+var moment = require("moment")
+var dotEnv = require("DotEnv").config()
+var keys = require("./keys.js");
 
 
-    ```js
-  var keys = require("./keys.js");
-```
+// Make it so liri.js can take in one of the following commands:
 
-    ```js
-  var spotify = new Spotify(keys.spotify);
-  ```
+//    * `concert-this`
 
-    //   Make it so liri.js can take in one of the following commands:
+//    * `spotify-this-song`
 
-    * `concert-this`
+//    * `movie-this`
 
-    * `spotify-this-song`
-
-    * `movie-this`
-
-    * `do-what-it-says`
+//    * `do-what-it-says`
