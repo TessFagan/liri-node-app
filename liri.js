@@ -21,12 +21,28 @@ var keys = require("./keys.js");
 //    * `do-what-it-says`
 
 
-function concertThis() {
-  console.log("its a function!")
+let type = process.argv[2]
+let input = process.argv[3]
 
-  var artistName = "rihanna";
-  var queryUrl = `https://rest.bandsintown.com/artists/${artistName}/events?app_id=codingbootcamp`
-  console.log(queryUrl);
+function chooseAPI(type, input) {
+  switch (type) {
+    case "concertThis":
+      return concertThis(input);
+    case "spotifyThis":
+      return spotifyThis(input);
+    case "movieThis":
+      return movieThis(input);
+    case "doWhatItSays":
+      return doWhatItSays(input);
+  }
+}
+chooseAPI(type, input)
+
+
+function concertThis(input) {
+  console.log("its a function!")
+  var queryUrl = `https://rest.bandsintown.com/artists/${input}/events?app_id=codingbootcamp`
+  // console.log(queryUrl);
 
   axios.get(queryUrl).then(
     function (response) {
@@ -38,8 +54,8 @@ function concertThis() {
         // The request was made and the server responded with a status code
         // that falls out of the range of 2xx
         console.log(error.response.data);
-        console.log(error.response.status);
-        console.log(error.response.headers);
+        // console.log(error.response.status);
+        // console.log(error.response.headers);
       }
       else {
         // Something happened in setting up the request that triggered an Error
@@ -50,17 +66,14 @@ function concertThis() {
     )
 }
 
-concertThis()
+function spotifyThis() {
 
+}
 
-// function spotifyThis() {
+function movieThis() {
 
-// }
+}
 
-// function movieThis() {
+function doWhatItSays() {
 
-// }
-
-// function doWhatItSays() {
-
-// }
+}
