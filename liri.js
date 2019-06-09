@@ -5,6 +5,9 @@ var Spotify = require("node-spotify-api");
 var keys = require("./keys.js");
 var spotifyKeys = new Spotify(keys.Spotify);
 var moment = require("moment")
+var fs = require("fs")
+// var text = require("./random.txt")
+
 
 
 // Make it so liri.js can take in one of the following commands:
@@ -61,10 +64,10 @@ function concertThis(input) {
 }
 
 
-function spotifyThis() {
-  spotifyKeys.search({ type: 'track', query: 'All the Small Things' }, function (err, data) {
+function spotifyThis(input) {
+  spotifyKeys.search({ type: 'track', query: `${input}` }, function (err, data) {
     if (err) {
-      return console.log('Error occurred: ' + err + `"The Sign by Ace of Base"`);
+      return console.log('Error occurred: ' + err);
 
     }
     console.log(data.tracks.items);
@@ -79,7 +82,9 @@ function spotifyThis() {
       console.log(previewlink)
       console.log(album)
     })
+
   });
+
 }
 
 function movieThis(input) {
@@ -118,4 +123,14 @@ function movieThis(input) {
 
 function doWhatItSays() {
 
+  function readData(err, data) {
+    console.log(data);
+  }
+
+  fs.readFile('random.txt', 'utf8', readData);
+
+  let textInput = fs.readFile('random.txt', 'utf8', readData);
+  console.log(textInput)
+
+  spotifyThis(textInput)
 }
