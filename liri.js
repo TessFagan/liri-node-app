@@ -79,24 +79,10 @@ function spotifyThis() {
       console.log(previewlink)
       console.log(album)
     })
-
   });
-
-
-  // Artist(s)
-
-  // * The song's name
-
-  // * A preview link of the song from Spotify
-
-  // * The album that the song is from
-
-
-
 }
 
 function movieThis(input) {
-
   var queryUrl = `http://www.omdbapi.com/?apikey=trilogy&t=${input}`
 
   axios.get(queryUrl)
@@ -107,11 +93,18 @@ function movieThis(input) {
       let movieIMDB = movie.imdbRating
       let movieRotten = movie.Ratings[1].Value
       let movieCountry = movie.Country
-
+      let movieLang = movie.Language
+      let moviePlot = movie.Plot
+      let movieActors = movie.Actors
 
       console.log(`\n${movieName}`)
       console.log(movieYear)
       console.log(movieIMDB)
+      console.log(movieRotten)
+      console.log(movieCountry)
+      console.log(movieLang)
+      console.log(moviePlot)
+      console.log(movieActors)
     })
 
     .catch(function (error) {
@@ -122,17 +115,6 @@ function movieThis(input) {
     })
 }
 
-
-  // Title of the movie.
-  // * Year the movie came out.
-  // * IMDB Rating of the movie.
-  // * Rotten Tomatoes Rating of the movie.
-  // * Country where the movie was produced.
-  // * Language of the movie.
-  // * Plot of the movie.
-  // * Actors in the movie.
-
-}
 
 function doWhatItSays() {
 
