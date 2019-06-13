@@ -6,7 +6,6 @@ var keys = require("./keys.js");
 var spotifyKeys = new Spotify(keys.Spotify);
 var moment = require("moment")
 var fs = require("fs")
-// var text = require("./random.txt")
 
 
 
@@ -72,15 +71,16 @@ function spotifyThis(input) {
     }
     console.log(data.tracks.items);
     var songs = data.tracks.items
-    songs.forEach(Object => {
-      let artistName = Object.artists[0].name
-      let songName = Object.name
-      let previewLink = Object.preview_url
-      let album = Object.album.name
+    songs.forEach(song => {
+      let artistName = song.artists[0].name
+      let songName = song.name
+      let previewLink = song.album.preview_url
+      let album = song.album.name
 
-      console.log(`\n${artistName}`)
-      console.log(previewlink)
-      console.log(album)
+      console.log(`\n${artistName}`);
+      console.log(`Song Name: ${songName}`);
+      console.log(`Preview link: ${previewLink}`);
+      console.log(`Album Name: ${album}`);
     })
 
   });
@@ -123,14 +123,24 @@ function movieThis(input) {
 
 function doWhatItSays() {
 
-  function readData(err, data) {
+
+
+  fs.readFile('random.txt', 'utf8', function (error, data) {
+    if (error) {
+      return console.log(error);
+    }
+
+    // We will then print the contents of data
     console.log(data);
-  }
 
-  fs.readFile('random.txt', 'utf8', readData);
+    // Then split it by commas (to make it more readable)
+    var dataArr = data.split(",");
 
-  let textInput = fs.readFile('random.txt', 'utf8', readData);
-  console.log(textInput)
+    // We will then re-display the content as an array for later use.
+    console.log(dataArr);
+    let type = dataArr[0]
+    let input = dataArr[1]
+    chooseAPI(type, input)
+  });
 
-  spotifyThis(textInput)
 }
