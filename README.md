@@ -19,8 +19,8 @@ Tess Fagan created and contributed to this project. This project will not be mai
 
 
 **Screenshots**
-![image](working/liri-node-app/Screenshots/Screen Shot 2019-06-13 at 6.43.57 PM.png)
-![image](working/liri-node-app/Screenshots/Screen Shot 2019-06-13 at 6.46.34 PM.png)
-![image](working/liri-node-app/Screenshots/Screen Shot 2019-06-13 at 6.49.49 PM.png)
-![image](working/liri-node-app/Screenshots/Screen Shot 2019-06-13 at 6.51.08 PM.png)
+![image](./Screenshots/Screen Shot 2019-06-13 at 6.43.57 PM.png)
+![image](./Screenshots/Screen Shot 2019-06-13 at 6.46.34 PM.png)
+![image](./Screenshots/Screen Shot 2019-06-13 at 6.49.49 PM.png)
+![image](./Screenshots/Screen Shot 2019-06-13 at 6.51.08 PM.png)
 
