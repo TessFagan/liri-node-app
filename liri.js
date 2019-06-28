@@ -25,13 +25,13 @@ let input = process.argv[3]
 
 function chooseAPI(type, input) {
   switch (type) {
-    case "concertThis":
+    case "concert-this":
       return concertThis(input);
-    case "spotifyThis":
+    case "spotify-this-song":
       return spotifyThis(input);
-    case "movieThis":
+    case "movie-this":
       return movieThis(input);
-    case "doWhatItSays":
+    case "do-what-it-says":
       return doWhatItSays(input);
   }
 }
